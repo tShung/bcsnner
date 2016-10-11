@@ -1,0 +1,67 @@
+﻿@model WPL.Models.ScannModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<form action="/Home/Index" id="scannForm" method="post" role="form">
+    @Html.AntiForgeryToken()
+  @if( string.IsNullOrEmpty(Model.Upc)) {
+    <input type="hidden" name="scannedImage" id="scannedImage" />
+   <div class="row"> 
+      <div class="wplcontainer">
+         <video id="video" autoplay>not support video</video>
+         <div id="cropArea" class="photoArea"></div>
+      </div>
+   </div>
+   <div class="row">
+       <button type="button" id="scann" class="btn btn-lg btn-info btn-block">Scan</button>       
+   </div>
+   <div class="row">     
+       <label for="videoSource">Camera: </label><select id="videoSource"></select>
+   </div>
+   <canvas id="canvas" ></canvas>
+  }
+  else {
+   <div class="panel panel-default">
+       <div class="panel-body">
+           <div class="form-group">
+               @Html.LabelFor(m => m.Upc, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Upc, new { @class = "form-control", @disabled = "true" })
+        </div>
+           </div>
+           <div class="form-group">
+               @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @disabled = "true" })
+        </div>
+           </div>
+           <div class="form-group">
+               @Html.LabelFor(m => m.Price, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @disabled = "true" })
+        </div>
+           </div>
+           <div class="form-group">
+               @Html.LabelFor(m => m.Qty, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Qty, new { @class = "form-control", @disabled = "true" })
+        </div>
+           </div>
+           <div class="form-group">
+               @Html.LabelFor(m => m.Location, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Location, new { @class = "form-control", @disabled = "true" })
+        </div>
+           </div>
+       </div>
+     <div class="panel-footer">
+        @Html.ActionLink("Refresh", "Index", "Home")
+     </div>
+   </div>
+
+    }
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/app")
+}

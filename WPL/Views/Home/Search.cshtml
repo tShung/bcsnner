@@ -1,0 +1,63 @@
+﻿@model WPL.Models.ScannModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <div class="editor-label" >
+            @Html.LabelFor(model => model.Upc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Upc)
+            @Html.ValidationMessageFor(model => model.Upc)
+        </div>     
+   if( Model != null ) {
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Qty)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Qty)
+            @Html.ValidationMessageFor(model => model.Qty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>    
+   }    
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+}
+<div>
+    @Html.ActionLink("Back to Scan", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
