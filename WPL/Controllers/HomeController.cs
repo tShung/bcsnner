@@ -9,13 +9,13 @@ namespace WPL.Controllers
     public class HomeController : Controller
     {
         IProduct _db = new Repository();
-        [Authorize]
+    //  [Authorize]
         public ActionResult Index()
         {
             return View(new ScannModel());
         }
 
-        [Authorize]
+    //S  [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(ScannModel model, string scannedImage)

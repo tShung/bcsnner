@@ -24,12 +24,14 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Refresh", "Index", "Home")</li>
                     <li>@Html.ActionLink("Search Upc", "Search", "Home")</li>
-@*                  <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@                    
+                    @if (Request.IsAuthenticated){
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>  
+                    }               
                     @if (Request.IsAuthenticated && User.IsInRole("Admin")) {                      
-@*                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>*@
+                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -40,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Crimsontt.com</p>
+            <p>&copy; @DateTime.Now.Year - Bobby Tu</p>
         </footer>
     </div>
 

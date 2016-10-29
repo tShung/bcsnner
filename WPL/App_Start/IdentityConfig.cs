@@ -114,7 +114,7 @@ namespace WPL.Models
         public static void InitializeIdentityForEF(ApplicationDbContext db) {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
-            const string name = "admin@crimsontt.com";
+            const string name = "admin@bstu.com";
             const string password = "Admin@123456";
             const string roleName = "Admin";
 

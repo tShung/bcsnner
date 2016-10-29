@@ -166,10 +166,6 @@
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="..\configwpl.ps1">
-      <Link>configwpl.ps1</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Properties\PublishProfiles\localIIS.pubxml" />
     <None Include="Properties\PublishProfiles\tovegas2.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -246,6 +242,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\ScannModel.cs" />
+    <Compile Include="Models\WPL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
